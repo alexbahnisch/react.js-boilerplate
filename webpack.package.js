@@ -5,7 +5,8 @@ const path = require("path");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 
-let name = JSON.parse(fs.readFileSync("./package.json")).name + (process.env.MIN ? ".min" : "");
+let packageJson = JSON.parse(fs.readFileSync("./package.json"));
+let name = `${packageJson.name}-${packageJson.version + (process.env.MIN ? ".min" : "")}`;
 
 let config = {
   entry: path.resolve(__dirname, `./src/package/index.js`),

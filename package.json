@@ -1,16 +1,16 @@
 {
-  "name": "react-npm-boilerplate",
+  "name": "reactjs-boilerplate",
   "version": "0.0.1-SNAPSHOT",
-  "description": "A boiler plate for creating a react based npm package",
+  "description": "A boiler plate for creating a javascript react based npm packages and webpack apps.",
   "license": "MIT",
   "author": "Alex Bahnisch",
-  "homepage": "https://github.com/alexbahnisch/react-npm-boilerplate#readme",
+  "homepage": "https://github.com/alexbahnisch/reactjs-boilerplate#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/alexbahnisch/react-npm-boilerplate.git"
+    "url": "git+https://github.com/alexbahnisch/reactjs-boilerplate.git"
   },
   "bugs": {
-    "url": "https://github.com/alexbahnisch/react-npm-boilerplate/issues"
+    "url": "https://github.com/alexbahnisch/reactjs-boilerplate/issues"
   },
   "keywords": [
     "boilerplate",
@@ -40,8 +40,7 @@
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "webpack": "^2.6.1",
-    "webpack-dev-server": "^2.4.5",
-    "webpack-node-externals": "^1.6.0"
+    "webpack-dev-server": "^2.4.5"
   },
   "peerDependencies": {
     "prop-types": "^15.5.10",
@@ -49,16 +48,16 @@
     "react-dom": "^15.6.1"
   },
   "scripts": {
-    "artifact": "npm run compile && npm run package && npm run tar",
+    "artifact": "npm run compile && npm run bundle && npm run package",
     "build": "npm run clean:public && cross-env CONFIG=app webpack --progress -p",
     "build:dev": "npm run clean:public && cross-env CONFIG=app webpack --devtool inline-source-map --progress --watch",
+    "bundle": "cross-env CONFIG=package MIN=true webpack -p && cross-env CONFIG=package webpack && rm ./dist/package/zzz.*",
     "clean": "npm run clean:package && npm run clean:public",
     "clean:package": "rm !(*.gitkeep) -rf ./dist/package/*",
     "clean:public": "rm !(*.gitkeep) -rf ./dist/public/*",
     "compile": "babel ./src/package/ --out-dir ./dist/package/",
-    "package": "cross-env CONFIG=package MIN=true webpack -p && cross-env CONFIG=package webpack && rm ./dist/package/zzz.*",
+    "package": "node ./scripts/pre-package.js && cd ./dist/artifacts/ && npm pack ../package",
     "server": "http-server ./dist/public/ -p 8002",
-    "server:dev": "cross-env CONFIG=app webpack-dev-server --devtool inline-source-map --progress",
-    "tar": "node ./scripts/pre-package.js && cd ./dist/artifacts/ && npm pack ../package"
+    "server:dev": "cross-env CONFIG=app webpack-dev-server --devtool inline-source-map --progress"
   }
 }

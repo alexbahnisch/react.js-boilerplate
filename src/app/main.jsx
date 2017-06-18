@@ -11,4 +11,3 @@ ReactDom.render(
   </App>,
   document.getElementById("reactjs-boilerplate")
 );
-

@@ -2,10 +2,7 @@
 import React, {Component} from "react"
 import PropTypes from "prop-types"
 
-// import {Wrapper} from "../../package"
-// const Package = window.Package;
-
-const Wrapper = Package.Wrapper;
+import {Wrapper} from "../../package"
 
 import "./views.css";
 
