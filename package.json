@@ -1,0 +1,64 @@
+{
+  "name": "react-npm-boilerplate",
+  "version": "0.0.1-SNAPSHOT",
+  "description": "A boiler plate for creating a react based npm package",
+  "license": "MIT",
+  "author": "Alex Bahnisch",
+  "homepage": "https://github.com/alexbahnisch/react-npm-boilerplate#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexbahnisch/react-npm-boilerplate.git"
+  },
+  "bugs": {
+    "url": "https://github.com/alexbahnisch/react-npm-boilerplate/issues"
+  },
+  "keywords": [
+    "boilerplate",
+    "javascript",
+    "npm",
+    "react"
+  ],
+  "main": "./src/package/index.js",
+  "private": true,
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.25.0",
+    "babel-loader": "^7.0.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-decorators": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.23.0",
+    "babel-preset-env": "^1.5.2",
+    "babel-preset-react": "^6.24.1",
+    "copy-webpack-plugin": "^4.0.1",
+    "cross-env": "^5.0.1",
+    "css-loader": "^0.28.4",
+    "extract-text-webpack-plugin": "^2.1.2",
+    "html-webpack-plugin": "^2.28.0",
+    "http-server": "^0.10.0",
+    "json5": "^0.5.1",
+    "prop-types": "^15.5.10",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "webpack": "^2.6.1",
+    "webpack-dev-server": "^2.4.5",
+    "webpack-node-externals": "^1.6.0"
+  },
+  "peerDependencies": {
+    "prop-types": "^15.5.10",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1"
+  },
+  "scripts": {
+    "artifact": "npm run compile && npm run package && npm run tar",
+    "build": "npm run clean:public && cross-env CONFIG=app webpack --progress -p",
+    "build:dev": "npm run clean:public && cross-env CONFIG=app webpack --devtool inline-source-map --progress --watch",
+    "clean": "npm run clean:package && npm run clean:public",
+    "clean:package": "rm !(*.gitkeep) -rf ./dist/package/*",
+    "clean:public": "rm !(*.gitkeep) -rf ./dist/public/*",
+    "compile": "babel ./src/package/ --out-dir ./dist/package/",
+    "package": "cross-env CONFIG=package MIN=true webpack -p && cross-env CONFIG=package webpack && rm ./dist/package/zzz.*",
+    "server": "http-server ./dist/public/ -p 8002",
+    "server:dev": "cross-env CONFIG=app webpack-dev-server --devtool inline-source-map --progress",
+    "tar": "node ./scripts/pre-package.js && cd ./dist/artifacts/ && npm pack ../package"
+  }
+}
