@@ -8,7 +8,7 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 let packageJson = JSON.parse(fs.readFileSync("./package.json"));
 let name = `${packageJson.name}-${packageJson.version + (process.env.MIN ? ".min" : "")}`;
 
-let config = {
+module.exports = {
   entry: path.resolve(__dirname, `./src/package/index.js`),
   output: {
     path: path.resolve(__dirname, "./dist/package/"),
@@ -35,5 +35,3 @@ let config = {
   ],
   target: "node"
 };
-
-module.exports = config;
