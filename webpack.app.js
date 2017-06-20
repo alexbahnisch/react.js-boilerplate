@@ -4,6 +4,7 @@ const path = require("path");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const LiveReloadPlugin = require('webpack-livereload-plugin');
 
 
 module.exports = {
@@ -14,7 +15,8 @@ module.exports = {
   },
   devServer: {
     contentBase: path.resolve(__dirname, "./dist/public/"),
-    port: 8001
+    port: 8001,
+    publicPath: "/"
   },
   resolve: {
     alias: {
@@ -44,6 +46,7 @@ module.exports = {
     new ExtractTextPlugin("styles.css"),
     new HtmlWebpackPlugin({
       template: "./src/assets/index.html"
-    })
+    }),
+    new LiveReloadPlugin()
   ]
 };

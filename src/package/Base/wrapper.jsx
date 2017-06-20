@@ -8,16 +8,18 @@ import "./base.css"
 
 export class Wrapper extends PureComponent {
 
-  //noinspection JSUnusedGlobalSymbols
   static propTypes = {
     children: PropTypes.object,
     className: PropTypes.string,
     style: PropTypes.object
   };
 
+  static defaultProps = {
+    className: "wrapper"
+  };
+
   concatClassNames(classNames) {
-    let className = `wrapper ${this.props.className} ${classNames}`;
-    return className || undefined;
+    return [this.props.className, classNames].join(" ") || undefined;
   }
 
   mergeStyles(...styles) {

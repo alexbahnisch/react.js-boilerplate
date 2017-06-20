@@ -40,7 +40,8 @@
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "webpack": "^2.6.1",
-    "webpack-dev-server": "^2.4.5"
+    "webpack-dev-server": "^2.4.5",
+    "webpack-livereload-plugin": "^0.11.0"
   },
   "peerDependencies": {
     "prop-types": "^15.5.10",
@@ -50,7 +51,7 @@
   "scripts": {
     "artifact": "npm run compile && npm run bundle && npm run package",
     "build": "npm run clean:public && cross-env CONFIG=app webpack --progress -p",
-    "build:dev": "npm run clean:public && cross-env CONFIG=app webpack --devtool inline-source-map --progress --watch",
+    "build:dev": "npm run clean:public && cross-env CONFIG=app NODE_ENV=development webpack --devtool inline-source-map --progress --watch",
     "bundle": "cross-env CONFIG=package MIN=true webpack -p && cross-env CONFIG=package webpack && rm ./dist/package/zzz.*",
     "clean": "npm run clean:package && npm run clean:public",
     "clean:package": "rm !(*.gitkeep) -rf ./dist/package/*",

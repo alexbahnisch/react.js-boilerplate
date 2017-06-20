@@ -9,7 +9,6 @@ import "./views.css";
 
 export class App extends Component {
 
-  //noinspection JSUnusedGlobalSymbols
   static propTypes = {
     children: PropTypes.any
   };
