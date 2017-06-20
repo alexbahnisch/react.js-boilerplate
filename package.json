@@ -52,7 +52,7 @@
     "artifact": "npm run compile && npm run bundle && npm run package",
     "build": "npm run clean:public && cross-env CONFIG=app webpack --progress -p",
     "build:dev": "npm run clean:public && cross-env CONFIG=app NODE_ENV=development webpack --devtool inline-source-map --progress --watch",
-    "bundle": "cross-env CONFIG=package MIN=true webpack -p && cross-env CONFIG=package webpack && rm ./dist/package/zzz.*",
+    "bundle": "cross-env CONFIG=package MIN=true webpack && cross-env CONFIG=package webpack && rm ./dist/package/zzz.*",
     "clean": "npm run clean:package && npm run clean:public",
     "clean:package": "rm !(*.gitkeep) -rf ./dist/package/*",
     "clean:public": "rm !(*.gitkeep) -rf ./dist/public/*",
