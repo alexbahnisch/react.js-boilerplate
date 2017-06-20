@@ -4,7 +4,7 @@ import React from "react";
 import ReactDom from "react-dom";
 
 import {App} from "./views/app"
-import {addLiveReloadSource} from "./utils/development"
+import {addLiveReloadSource, createElement} from "./utils/development"
 
 
 addLiveReloadSource();
@@ -12,5 +12,5 @@ ReactDom.render(
   <App>
     Hello World!!
   </App>,
-  document.getElementById("reactjs-boilerplate")
+  createElement("reactjs-boilerplate")
 );
