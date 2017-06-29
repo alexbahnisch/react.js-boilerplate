@@ -2,9 +2,6 @@
 
 import {Wrapper} from "./Base/wrapper";
 
-window.Package = {
-  Wrapper
-};
 
 export default {
   Wrapper
