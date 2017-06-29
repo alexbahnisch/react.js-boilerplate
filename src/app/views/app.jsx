@@ -10,15 +10,15 @@ import "./views.css";
 export class App extends Component {
 
   static propTypes = {
-    children: PropTypes.any
+    children: PropTypes.node
   };
 
   render() {
-    const {children, className, ...other} = this.props;
+    const {children} = this.props;
 
     return (
-      <Wrapper>
-        <div className={!!className ? "app " + className : "app"} {...other}>
+      <Wrapper className="app">
+        <div>
           {children}
         </div>
       </Wrapper>

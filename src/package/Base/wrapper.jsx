@@ -9,7 +9,7 @@ import "./base.css"
 export class Wrapper extends PureComponent {
 
   static propTypes = {
-    children: PropTypes.object,
+    children: PropTypes.node,
     className: PropTypes.string,
     style: PropTypes.object
   };
@@ -19,7 +19,7 @@ export class Wrapper extends PureComponent {
   };
 
   concatClassNames(classNames) {
-    return [this.props.className, classNames].join(" ") || undefined;
+    return [this.props.className, classNames].filter((item) => (item !== undefined)).join(" ") || undefined;
   }
 
   mergeStyles(...styles) {
