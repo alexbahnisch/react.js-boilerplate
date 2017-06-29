@@ -1,7 +1,7 @@
 {
   "name": "react.js-boilerplate",
   "version": "0.0.1-SNAPSHOT",
-  "description": "A boiler plate for creating a javascript react based npm packages and webpack apps.",
+  "description": "A boilerplate for creating a javascript react based npm packages and webpack apps.",
   "license": "MIT",
   "author": "Alex Bahnisch",
   "homepage": "https://github.com/alexbahnisch/react.js-boilerplate#readme",
@@ -49,16 +49,16 @@
     "react-dom": "^15.6.1"
   },
   "scripts": {
-    "artifact": "npm run compile && npm run bundle && npm run package",
-    "build": "npm run clean:public && cross-env CONFIG=app webpack --progress -p",
-    "build:dev": "npm run clean:public && cross-env CONFIG=app NODE_ENV=development webpack --devtool inline-source-map --progress --watch",
-    "bundle": "cross-env CONFIG=package MIN=true webpack && cross-env CONFIG=package webpack && rm ./dist/package/zzz.*",
-    "clean": "npm run clean:package && npm run clean:public",
-    "clean:package": "rm !(*.gitkeep) -rf ./dist/package/*",
-    "clean:public": "rm !(*.gitkeep) -rf ./dist/public/*",
-    "compile": "babel ./src/package/ --out-dir ./dist/package/",
-    "package": "node ./scripts/pre-package.js && cd ./dist/artifacts/ && npm pack ../package",
-    "server": "http-server ./dist/public/ -p 8002",
-    "server:dev": "cross-env CONFIG=app webpack-dev-server --devtool inline-source-map --progress"
+    "app:build": "npm run app:clean && cross-env CONFIG=app webpack --progress -p",
+    "app:build-dev": "npm run app:clean && cross-env CONFIG=app NODE_ENV=development webpack --devtool inline-source-map --progress --watch",
+    "app:clean": "rm !(*.gitkeep) -rf ./dist/app/*",
+    "app:server": "http-server ./dist/app/ -p 8002",
+    "app:server-dev": "cross-env CONFIG=app webpack-dev-server --devtool inline-source-map --progress",
+    "clean": "npm run app:clean && npm run package:clean",
+    "package": "npm run package:compile && npm run package:bundle && npm run package:artifact",
+    "package:artifact": "node ./scripts/pre-package.js && cd ./dist/artifacts/ && npm pack ../package",
+    "package:bundle": "cross-env CONFIG=package MIN=true webpack && cross-env CONFIG=package webpack && rm ./dist/package/zzz.*",
+    "package:clean": "rm !(*.gitkeep) -rf ./dist/package/*",
+    "package:compile": "babel ./src/package/ --out-dir ./dist/package/"
   }
 }

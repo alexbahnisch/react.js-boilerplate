@@ -10,11 +10,11 @@ const LiveReloadPlugin = require('webpack-livereload-plugin');
 module.exports = {
   entry: path.resolve(__dirname, "./src/app/main.jsx"),
   output: {
-    path: path.resolve(__dirname, "./dist/public/"),
+    path: path.resolve(__dirname, "./dist/app/"),
     filename: "bundle.js"
   },
   devServer: {
-    contentBase: path.resolve(__dirname, "./dist/public/"),
+    contentBase: path.resolve(__dirname, "./dist/app/"),
     port: 8001,
     publicPath: "/"
   },
