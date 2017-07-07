@@ -16,7 +16,8 @@
     "boilerplate",
     "javascript",
     "npm",
-    "react"
+    "react",
+    "webpack"
   ],
   "main": "./src/package/index.js",
   "private": true,

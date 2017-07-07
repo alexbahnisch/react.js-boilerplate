@@ -11,5 +11,5 @@ ReactDom.render(
   <App>
     Hello World!!
   </App>,
-  createElement("reactjs-boilerplate")
+  createElement("react.js-boilerplate")
 );

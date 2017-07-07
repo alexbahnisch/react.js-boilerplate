@@ -19,7 +19,7 @@ export class Wrapper extends PureComponent {
   };
 
   concatClassNames(classNames) {
-    return [this.props.className, classNames].filter((item) => (item !== undefined)).join(" ") || undefined;
+    return [this.props.className, classNames].filter((className) => (className !== undefined)).join(" ") || undefined
   }
 
   mergeStyles(...styles) {
