@@ -1,7 +1,7 @@
 {
   "name": "react.js-boilerplate",
   "version": "0.0.1-SNAPSHOT",
-  "description": "A boilerplate for creating a javascript react based npm packages and webpack apps.",
+  "description": "A boilerplate for creating javascript/react based npm packages and webpack apps.",
   "license": "MIT",
   "author": "Alex Bahnisch",
   "homepage": "https://github.com/alexbahnisch/react.js-boilerplate#readme",
