@@ -1,5 +1,4 @@
-"use strict";
-// @flow
+"use strict"; // @flow
 
 
 export function appendChild(element: Element): void {
