@@ -3,17 +3,19 @@
 import React, {Children, PureComponent} from "react"
 import PropTypes from "prop-types"
 
-import "./base.css"
+import "./styles.css"
 
 
 export class Wrapper extends PureComponent {
 
+  // noinspection JSUnusedGlobalSymbols
   static propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,
     style: PropTypes.object
   };
 
+  // noinspection JSUnusedGlobalSymbols
   static defaultProps = {
     className: "wrapper"
   };
