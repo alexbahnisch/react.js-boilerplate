@@ -10,15 +10,6 @@ export function appendChild(element: Element): void {
 }
 
 
-export function addLiveReloadSource(): void {
-  if (process.env.NODE_ENV !== "production") {
-    let liveReload = document.createElement("script");
-    liveReload.setAttribute("src", "http://localhost:35729/livereload.js");
-    appendChild(liveReload)
-  }
-}
-
-
 export function createElement(id: string, tagName: string = "div"): Element {
   let element = document.getElementById(id);
 
