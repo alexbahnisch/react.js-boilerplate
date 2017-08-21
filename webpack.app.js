@@ -1,4 +1,5 @@
 "use strict";
+/** @namespace process.env.NODE_ENV */
 
 const path = require("path");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
