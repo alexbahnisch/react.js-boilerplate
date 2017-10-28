@@ -58,7 +58,6 @@
     "app:server-dev": "cross-env CONFIG=app webpack-dev-server --devtool inline-source-map --progress",
     "clean": "npm run app:clean && npm run package:clean",
     "flow": "flow",
-    "install": "npm install",
     "package": "npm run package:compile && npm run package:bundle && npm run package:artifact",
     "package:artifact": "node ./scripts/pre-package.js && cd ./dist/artifacts/ && npm pack ../package",
     "package:bundle": "cross-env CONFIG=package MIN=true webpack && cross-env CONFIG=package webpack && rm ./dist/package/zzz.*",
