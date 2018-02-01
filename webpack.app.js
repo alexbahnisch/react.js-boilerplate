@@ -1,6 +1,4 @@
 "use strict";
-/** @namespace process.env.NODE_ENV */
-
 const path = require("path");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
@@ -34,7 +32,7 @@ module.exports = {
   },
   devServer: {
     contentBase: path.resolve(__dirname, "./dist/app/"),
-    port: 8001
+    port: 8082
   },
   resolve: {
     alias: {
