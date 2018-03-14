@@ -1,27 +1,28 @@
-FROM node:8.9.4 as build
+FROM node:8.10 as build
 
 WORKDIR /build
 
+RUN npm install --global npm
+
 COPY . /build
 
-RUN npm install --global npm
 RUN npm install
 RUN npm run app:build-docker
 
 
-FROM ubuntu:16.04 as security
+FROM ubuntu:17.10 as security
 
 WORKDIR /etc/nginx/ssl
 
 RUN apt-get update
 RUN apt-get install --yes openssl
 
-COPY conf/rsa.cfg /etc/nginx/ssl/rsa.ini
+COPY ./conf/rsa.cfg /etc/nginx/ssl/rsa.ini
 
 RUN openssl req -config rsa.ini -days 365 -newkey rsa:2048 -nodes -x509 -keyout rsa.key -out rsa.crt
 
 
-FROM nginx:1.13.8
+FROM nginx:1.13.9
 
 ENV NGINX_HOST 0.0.0.0
 ENV NGINX_PORT 80
