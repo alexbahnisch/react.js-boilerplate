@@ -23,20 +23,20 @@ npm install
     Then in a separate terminal:
     
     ```
-    npm run app:server
+    npm run server
     ```
 
 * Production build using http-server (content available at http://localhost:8081):
     
     ```
     npm run app:build
-    npm run app:server
+    npm run server
     ```
 
 * Development build using webpack-dev-server (content available at http://localhost:8082):
 
     ```
-    npm run app:server-dev
+    npm run app:build-server
     ```
 
 ##### Docker Build

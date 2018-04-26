@@ -55,15 +55,15 @@
     "app:build": "npm run app:clean && cross-env CONFIG=app webpack -p --progress",
     "app:build-dev": "npm run app:clean && cross-env CONFIG=app NODE_ENV=development webpack --devtool inline-source-map --progress --watch",
     "app:build-docker": "cross-env CONFIG=app webpack -p",
+    "app:build-server": "cross-env CONFIG=app webpack-dev-server --devtool inline-source-map --progress",
     "app:clean": "rm !(*.gitkeep) -rf ./dist/app/*",
-    "app:server": "http-server ./dist/app/ -p 8081",
-    "app:server-dev": "cross-env CONFIG=app webpack-dev-server --devtool inline-source-map --progress",
     "clean": "npm run app:clean && npm run package:clean",
     "flow": "flow",
     "package": "npm run package:compile && npm run package:bundle && npm run package:artifact",
     "package:artifact": "node ./scripts/pre-package.js && cd ./dist/artifacts/ && npm pack -q ../package",
     "package:bundle": "cross-env CONFIG=package MIN=true webpack -p && cross-env CONFIG=package webpack && rm ./dist/package/zzz.*",
     "package:clean": "rm !(*.gitkeep) -rf ./dist/package/*",
-    "package:compile": "babel ./src/package/ --out-dir ./dist/package/"
+    "package:compile": "babel ./src/package/ --out-dir ./dist/package/",
+    "server": "http-server ./dist/app/ -p 8081"
   }
 }
