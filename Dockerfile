@@ -1,6 +1,6 @@
 FROM ubuntu:17.10 as security
 
-WORKDIR /etc/nginx/sslnode
+WORKDIR /etc/nginx/ssl
 
 RUN apt-get update
 RUN apt-get install --yes openssl
