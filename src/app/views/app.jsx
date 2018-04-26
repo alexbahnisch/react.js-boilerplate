@@ -23,7 +23,7 @@ export class App extends Component {
         <div>
           {children}
           <style>
-            {".app {color: rgb(100, 100, 100);}"}
+            {`.app {color: rgb(100, 100, 100);}`}
           </style>
         </div>
       </Wrapper>
