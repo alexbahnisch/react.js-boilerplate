@@ -22,6 +22,9 @@ export class App extends Component {
       <Wrapper className="app">
         <div>
           {children}
+          <style>
+            {".app {color: rgb(100, 100, 100);}"}
+          </style>
         </div>
       </Wrapper>
     )

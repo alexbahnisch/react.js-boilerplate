@@ -25,6 +25,7 @@ if (process.env.NODE_ENV !== "production") {
 }
 
 module.exports = {
+  mode: process.env.NODE_ENV === "production" ? "production" : "development",
   entry: path.resolve(__dirname, "./src/app/main.jsx"),
   output: {
     path: path.resolve(__dirname, "./dist/app/"),

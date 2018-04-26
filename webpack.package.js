@@ -2,20 +2,18 @@
 const fs = require("fs");
 const path = require("path");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
-const webpack = require("webpack");
 
 
 let packageJson = JSON.parse(fs.readFileSync("./package.json"));
 let name = `${packageJson.name}-${packageJson.version}${process.env.MIN ? ".min" : ""}`;
 let plugins = [new ExtractTextPlugin(`${name}.css`)];
 
-if (process.env.MIN) {
-  plugins.push(new webpack.optimize.UglifyJsPlugin())
-} else {
+if (!process.env.MIN) {
   plugins.push(new ExtractTextPlugin("styles.css"))
 }
 
 module.exports = {
+  mode: !!process.env.MIN ? "production" : "development",
   entry: path.resolve(__dirname, `./src/package/index.js`),
   output: {
     path: path.resolve(__dirname, "./dist/package/"),
