@@ -4,8 +4,6 @@ import PropTypes from "prop-types"
 
 import {Wrapper} from "../../package"
 
-import "./styles.css";
-
 
 export class App extends Component {
 
