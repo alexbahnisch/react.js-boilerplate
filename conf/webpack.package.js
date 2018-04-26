@@ -14,12 +14,12 @@ if (!process.env.MIN) {
 
 module.exports = {
   mode: !!process.env.MIN ? "production" : "development",
-  entry: path.resolve(__dirname, `./src/package/index.js`),
+  entry: path.resolve(__dirname, `../src/package/index.js`),
   output: {
-    path: path.resolve(__dirname, "./dist/package/"),
+    path: path.resolve(__dirname, "../dist/package/"),
     filename: `zzz.js`
   },
-  devtool: process.env.MIN ? "source-map" : undefined,
+  devtool: !!process.env.MIN ? "source-map" : undefined,
   resolve: {
     extensions: [".js", ".jsx"]
   },
