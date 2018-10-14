@@ -25,6 +25,7 @@ if (process.env.NODE_ENV !== "production") {
 }
 
 module.exports = {
+  mode: process.env.NODE_ENV !== "production" ? "production" : "development",
   entry: path.resolve(__dirname, "./src/app/main.jsx"),
   output: {
     path: path.resolve(__dirname, "./dist/"),
@@ -41,7 +42,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        loader: ExtractTextPlugin.extract("css-loader")
+        loader: ExtractTextPlugin.extract("css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]")
       }
     ]
   },

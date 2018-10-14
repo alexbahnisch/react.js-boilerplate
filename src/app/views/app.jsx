@@ -3,7 +3,7 @@ import React, {Component} from "react"
 import PropTypes from "prop-types"
 
 import {decorator} from "../utils/development";
-import "./styles.css";
+import styles from "./app.css"
 
 
 @decorator
@@ -17,10 +17,12 @@ export class App extends Component {
   render() {
     const {children} = this.props;
 
-    return (
-      <div className="app">
+    console.log(children);
+
+    return [
+      <div className={styles.app} key={0}>
         {children}
       </div>
-    )
+    ]
   }
 }
