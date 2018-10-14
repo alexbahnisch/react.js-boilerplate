@@ -2,9 +2,11 @@
 import React, {Component} from "react"
 import PropTypes from "prop-types"
 
-import {Wrapper} from "../../package"
+import {decorator} from "../utils/development";
+import "./styles.css";
 
 
+@decorator
 export class App extends Component {
 
   // noinspection JSUnusedGlobalSymbols
@@ -16,14 +18,9 @@ export class App extends Component {
     const {children} = this.props;
 
     return (
-      <Wrapper className="app">
-        <div>
-          {children}
-          <style>
-            {`.app {color: rgb(100, 100, 100);}`}
-          </style>
-        </div>
-      </Wrapper>
+      <div className="app">
+        {children}
+      </div>
     )
   }
 }

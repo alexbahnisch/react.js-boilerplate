@@ -1,75 +1,59 @@
-# react.js-boilerplate
+# angular-boilerplate
 
-A boilerplate for creating javascript/react based npm packages and webpack apps.
+A boilerplate for creating react.js/webpack apps.
 
-### Getting started
+### Requirements
 
-Requires node and npm to be installed, and added to system path.
+* gnu coreutils (windows version can be downloaded from [http://gnuwin32.sourceforge.net/packages/coreutils.htm]())
+* node 8 or greater, npm 6 or greater
+* coreutils, node and npm added to the system path
+
+## Getting started
+
+To install all dependencies, run:
 
 ```
 npm install
 ```
 
-## App
+## Development
 
-##### Local Build
-
-* Development build using http-server (content available at http://localhost:8081):
-
-    ```
-    npm run app:build-dev
-    ```
-    
-    Then in a separate terminal:
-    
-    ```
-    npm run server
-    ```
-
-* Production build using http-server (content available at http://localhost:8081):
-    
-    ```
-    npm run app:build
-    npm run server
-    ```
-
-* Development build using webpack-dev-server (content available at http://localhost:8082):
-
-    ```
-    npm run app:build-server
-    ```
-
-##### Docker Build
-
-Requires docker.
-
-* Development (content available at http://localhost:8080):
-
-    ```
-    docker-compose up -d
-    npm run app:build-dev
-    ```
-
-* Production (content available at http://localhost[:80] or https://localhost[:443]):
-
-    ```
-    docker-compose -f docker-compose.build.yml up --build -d
-    ```
-
-## Package
-
-To create a compiled npm package, run:
+To build app in development mode (builds with source maps for debugging and watching for live-reloading), run:
 
 ```
-npm run package
+npm run watch
 ```
 
-The created artifact will be at `./dist/artifacts/<package>-<version>.tgz`
-
-## Clean
-
-Finally to clean auto-generated code, run:
+Then to deploy the app with live-reloading, in a separate terminal run:
 
 ```
-npm run clean
+npm run server
+```
+
+The application will be available at http://localhost:8080.
+
+## Production
+
+To build app in production mode, run:
+
+```
+npm run build
+```
+
+You can then test the build by running:
+
+```
+npm run server
+```
+
+The application will be available at http://localhost:8080.
+
+## Project Structure
+
+```
+dist/           # location of development and production builds
+src/
+    app/        # location of application source files (compilable .css, .html and .ts files)
+    assets/     # location of static assets
+    test/       # location of tests
 ```

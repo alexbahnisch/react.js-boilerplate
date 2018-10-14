@@ -1,7 +1,7 @@
-"use strict"; // @flow
+"use strict";
 
 
-export function appendChild(element: Element): void {
+export function appendChild(element) {
   if (!!document) {
     if (!!document.body) {
       document.body.appendChild(element);
@@ -10,7 +10,7 @@ export function appendChild(element: Element): void {
 }
 
 
-export function createElement(id: string, tagName: string = "div"): Element {
+export function createElement(id, tagName = "div") {
   let element = document.getElementById(id);
 
   if (!element) {
@@ -20,4 +20,9 @@ export function createElement(id: string, tagName: string = "div"): Element {
   }
 
   return element;
+}
+
+
+export function decorator(cls) {
+  return cls
 }
