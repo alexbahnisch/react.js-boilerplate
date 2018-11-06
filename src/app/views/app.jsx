@@ -2,7 +2,7 @@
 import React, {Component} from "react"
 import PropTypes from "prop-types"
 
-import {decorator} from "../utils/development";
+import {decorator} from "../utils/index";
 import styles from "./app.css"
 
 
